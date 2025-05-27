@@ -437,17 +437,19 @@ function showPersonalization() {
     });
 
     // Start quizzes button
-    document.getElementById('startMiniQuizzes').addEventListener('click', () => {
-        if (selectedMiniQuizzes.size > 0) {
-            // Here you would redirect to the first selected quiz
-            // For now, we'll just show an alert
-            alert(`Starting ${selectedMiniQuizzes.size} mini quiz(es): ${Array.from(selectedMiniQuizzes).join(', ')}`);
-            
-            // In your actual implementation, you could do something like:
-            // window.location.href = `/quiz/${Array.from(selectedMiniQuizzes)[0]}`;
-            // or store the selection and proceed to the first quiz
-        }
-    });
+document.getElementById('startMiniQuizzes').addEventListener('click', () => {
+    if (selectedMiniQuizzes.size > 0) {
+        // For now, just hide the personalization section
+        document.getElementById('personalizationSection').style.display = 'none';
+        
+        // You could add a message like:
+        // alert('Mini quizzes coming soon! Thanks for your interest.');
+        
+        // Or redirect to a "coming soon" page:
+        // window.location.href = 'https://balynce.com/mini-quizzes-coming-soon';
+    }
+});
+
 
     // Skip button
     document.getElementById('skipPersonalization').addEventListener('click', () => {
