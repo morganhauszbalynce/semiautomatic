@@ -439,19 +439,15 @@ function showPersonalization() {
     // Start quizzes button
 document.getElementById('startMiniQuizzes').addEventListener('click', () => {
     if (selectedMiniQuizzes.size > 0) {
-        // Redirect to the first selected quiz
         const firstQuiz = Array.from(selectedMiniQuizzes)[0];
         
-        if (firstQuiz === 'whats-your-why') {
+        if (firstQuiz === 'your-financial-why') {
             window.location.href = 'financial-why-quiz.html';
-        } else if (firstQuiz === 'how-you-handle-life') {
+        } else if (firstQuiz === 'your-stress-decision-style') {
             window.location.href = 'stress-decision-quiz.html';
-        } else if (firstQuiz === 'how-you-live') {
+        } else if (firstQuiz === 'your-daily-rhythm') {
             window.location.href = 'daily-rhythm-quiz.html';
         }
-        
-        // If multiple quizzes selected, we'll start with the first one
-        // Later you could store the full selection and chain them together
     }
 });
 
