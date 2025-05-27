@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balynce Financial Personality Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hidden forms for Netlify -->
+    <form name="quiz-responses" netlify hidden>
+        <input type="text" name="personality_type" />
+        <input type="text" name="q1_life_stage" />
+        <input type="text" name="q2_household" />
+        <input type="text" name="q3_challenges" />
+        <input type="text" name="q4_unexpected_money" />
+        <input type="text" name="q5_bills" />
+        <input type="text" name="q6_budget" />
+        <input type="text" name="q7_shopping" />
+        <input type="text" name="q8_satisfaction" />
+        <input type="text" name="q9_saving_motivation" />
+        <input type="text" name="q10_financial_future" />
+        <input type="text" name="q11_decisions" />
+        <input type="text" name="q12_resonates" />
+        <input type="text" name="timestamp" />
+    </form>
+
+    <form name="feedback" netlify hidden>
+        <input type="text" name="accuracy" />
+        <input type="text" name="clarity" />
+        <input type="text" name="comments" />
+        <input type="text" name="timestamp" />
+    </form>
+
+
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Financial Personality Quiz</h1>
+            <p>Discover your unique approach to money and finances</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Part 1: Life Context -->
+            <div class="question-section active" id="section1">
+                <h2 class="section-title">Part 1: Life Context</h2>
+                
+                <div class="question">
+                    <h3>1. Which best describes your current life stage?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q1a" name="q1" value="student">
+                            <label for="q1a">Student or early career</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1b" name="q1" value="building">
+                            <label for="q1b">Career-building phase</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1c" name="q1" value="established">
+                            <label for="q1c">Established career with higher responsibilities</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1d" name="q1" value="retirement">
+                            <label for="q1d">Pre-retirement or retirement phase</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1e" name="q1" value="transition">
+                            <label for="q1e">Transitional period (career change, relocation, etc.)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>2. Which best describes your household situation?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q2a" name="q2" value="single_alone">
+                            <label for="q2a">Single, living alone</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2b" name="q2" value="single_dependents">
+                            <label for="q2b">Single, with dependents</label>
+                        </div>
+                        <!-- ADD THIS NEW OPTION -->
+                        <div class="option">
+                            <input type="radio" id="q2f" name="q2" value="single_shared">
+                            <label for="q2f">Single, living with roommates/family</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2c" name="q2" value="partnered_no_deps">
+                            <label for="q2c">Partnered, no dependents</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2d" name="q2" value="partnered_deps">
+                            <label for="q2d">Partnered, with dependents</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2e" name="q2" value="multi_gen">
+                            <label for="q2e">Part of a multi-generational household</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>3. Are you facing any of these financial challenges? (Select all that apply)</h3>
+                    <div class="options">
+                        <!-- All the same options, just the question title changed -->
+                        <div class="option">
+                            <input type="checkbox" id="q3a" name="q3" value="student_loans">
+                            <label for="q3a">Student loans or education debt</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3b" name="q3" value="credit_debt">
+                            <label for="q3b">Credit card or consumer debt</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3c" name="q3" value="housing">
+                            <label for="q3c">Mortgage or housing costs</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3d" name="q3" value="supporting_others">
+                            <label for="q3d">Supporting others financially (children, parents, etc.)</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3e" name="q3" value="emergency_savings">
+                            <label for="q3e">Insufficient emergency savings</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3f" name="q3" value="inconsistent_income">
+                            <label for="q3f">Inconsistent or unpredictable income</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3g" name="q3" value="healthcare">
+                            <label for="q3g">Healthcare costs</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="q3h" name="q3" value="none">
+                            <label for="q3h">None of the above</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 2: Core Financial Traits -->
+            <div class="question-section" id="section2">
+                <h2 class="section-title">Part 2: Core Financial Traits</h2>
+                
+                <div class="question">
+                    <h3>4. When you receive unexpected money (like a bonus or gift), you typically:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q4a" name="q4" value="save_all">
+                            <label for="q4a">Automatically save most or all of it</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4b" name="q4" value="save_some">
+                            <label for="q4b">Save some and spend some</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4c" name="q4" value="meaningful_spend">
+                            <label for="q4c">Look for something meaningful to spend it on</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4d" name="q4" value="spend_fun">
+                            <label for="q4d">Spend it quickly on something fun or exciting</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>5. When bills are due, you typically:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q5a" name="q5" value="immediate">
+                            <label for="q5a">Pay them immediately or have them scheduled in advance</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5b" name="q5" value="prompt">
+                            <label for="q5b">Pay them promptly on a regular schedule</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5c" name="q5" value="close_date">
+                            <label for="q5c">Pay them when reminded or close to the due date</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5d" name="q5" value="sometimes_late">
+                            <label for="q5d">Sometimes miss due dates or pay late</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>6. Your ideal budget would be:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q6a" name="q6" value="detailed">
+                            <label for="q6a">Detailed with specific amounts for many categories</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q6b" name="q6" value="structured_flexible">
+                            <label for="q6b">Structured but with some flexibility built in</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q6c" name="q6" value="simple_broad">
+                            <label for="q6c">Simple with broad categories and room for adjustment</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q6d" name="q6" value="minimal">
+                            <label for="q6d">Minimal or focused just on the biggest expenses</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>7. When shopping, you are most likely to:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q7a" name="q7" value="strict_list">
+                            <label for="q7a">Stick to a strict list and budget, avoiding impulse purchases</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q7b" name="q7" value="general_plan">
+                            <label for="q7b">Have a general plan but occasionally buy unexpected items</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q7c" name="q7" value="browse_thoughtful">
+                            <label for="q7c">Browse freely but consider each purchase thoughtfully</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q7d" name="q7" value="buy_exciting">
+                            <label for="q7d">Buy what excites you without too much deliberation</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 3: Values & Deeper Motivations -->
+            <div class="question-section" id="section3">
+                <h2 class="section-title">Part 3: Values & Deeper Motivations</h2>
+                
+                <div class="question">
+                    <h3>8. Which of these would bring you the most satisfaction?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q8a" name="q8" value="security">
+                            <label for="q8a">Having complete financial security</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8b" name="q8" value="help_others">
+                            <label for="q8b">Being able to help others financially</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8c" name="q8" value="freedom">
+                            <label for="q8c">Having freedom to make choices without money constraints</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8d" name="q8" value="milestones">
+                            <label for="q8d">Achieving impressive financial milestones</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8e" name="q8" value="balanced_life">
+                            <label for="q8e">Living a balanced life with enough for needs and meaningful wants</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>9. What would motivate you more to save money?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q9a" name="q9" value="projections">
+                            <label for="q9a">Detailed projections showing growth over time</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q9b" name="q9" value="metrics">
+                            <label for="q9b">Clear metrics and progress tracking</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q9c" name="q9" value="lifestyle">
+                            <label for="q9c">Visualizing the lifestyle or experiences the savings will provide</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q9d" name="q9" value="emotional">
+                            <label for="q9d">The emotional satisfaction and freedom that comes with reaching goals</label>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="question">
+                    <h3>10. When making a big financial decision, what's most important to you?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q10a" name="q10" value="predictable">
+                            <label for="q10a">Having a clear plan with minimal risk</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10b" name="q10" value="more_than_enough">
+                            <label for="q10b">Knowing you have plenty of buffer room</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10c" name="q10" value="pursue_passions">
+                            <label for="q10c">Making sure it aligns with your personal values</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10d" name="q10" value="impressive_assets">
+                            <label for="q10d">Choosing the option that builds the most wealth</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10e" name="q10" value="generous">
+                            <label for="q10e">Considering how it affects people you care about</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Part 3 section -->
+
+            <!-- Part 4: Life Lens -->
+            <div class="question-section" id="section4">
+                <h2 class="section-title">Part 4: Life Lens</h2>
+                
+                <div class="question">
+                    <h3>11. How do you usually make important decisions?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q11a" name="q11" value="facts_logic">
+                            <label for="q11a">Based on facts and logic</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q11b" name="q11" value="feelings_intuition">
+                            <label for="q11b">Based on feelings and intuition</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q11c" name="q11" value="seek_advice">
+                            <label for="q11c">Seeking advice from others</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q11d" name="q11" value="past_experience">
+                            <label for="q11d">Based on past experiences</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>12. Which statement resonates most deeply with you?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q12a" name="q12" value="peace_mind">
+                            <label for="q12a">"Financial security gives me peace of mind"</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q12b" name="q12" value="tool_life">
+                            <label for="q12b">"Money is a tool for creating the life I want"</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q12c" name="q12" value="identity">
+                            <label for="q12c">"Financial success is a key part of my identity"</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q12d" name="q12" value="relationships">
+                            <label for="q12d">"Money should enable relationships and connections"</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q12e" name="q12" value="values">
+                            <label for="q12e">"Financial choices should align with personal values"</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Part 4 section -->
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <h2>Your Financial Personality</h2>
+                <div class="personality-type" id="personalityResult">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                <div class="insights" id="insightsResult">
+                    <!-- Insights will be populated by JavaScript -->
+                </div>
+                <button class="btn btn-primary" onclick="restartQuiz()">Take Quiz Again</button>
+                
+                <!-- Feedback Form -->
+                <div class="feedback-section">
+                    <h3>Help Us Improve</h3>
+                    <p>How was your experience? Your feedback helps us make the quiz better!</p>
+                    <form class="feedback-form" id="feedbackForm">
+                        <div class="feedback-question">
+                            <label for="accuracy">How accurate did your results feel? (1-5)</label>
+                            <select id="accuracy" name="accuracy" required>
+                                <option value="">Select...</option>
+                                <option value="1">1 - Not accurate at all</option>
+                                <option value="2">2 - Somewhat inaccurate</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Pretty accurate</option>
+                                <option value="5">5 - Very accurate</option>
+                            </select>
+                        </div>
+                        
+                        <div class="feedback-question">
+                            <label for="clarity">How clear were the questions? (1-5)</label>
+                            <select id="clarity" name="clarity" required>
+                                <option value="">Select...</option>
+                                <option value="1">1 - Very confusing</option>
+                                <option value="2">2 - Somewhat confusing</option>
+                                <option value="3">3 - Neutral</option>
+                                <option value="4">4 - Pretty clear</option>
+                                <option value="5">5 - Very clear</option>
+                            </select>
+                        </div>
+                        
+                        <div class="feedback-question">
+                            <label for="comments">Any other thoughts or suggestions?</label>
+                            <textarea id="comments" name="comments" placeholder="Optional: Tell us what you think..." rows="4"></textarea>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 15px;">
+                            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                            <button type="button" class="btn btn-primary" onclick="showPersonalization()">
+                                Continue to Mini Quizzes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+                <!-- Mini Quiz Personalization Section -->
+<div class="personalization-section" id="personalizationSection">
+    <div class="personalization-header">
+        <h3>💡 Get Your Personal Budget Strategy</h3>
+        <p>Now that we know your financial personality, let's dive deeper to create a budgeting approach that actually works for <em>you</em>.</p>
+    </div>
+
+    <div class="personalization-intro">
+        <h4>🎯 Why One-Size-Fits-All Budgets Fail</h4>
+        <p>Your money habits are shaped by your values, stress responses, and lifestyle. These mini quizzes will help us build a budgeting system that fits how you actually live, not how you think you should live.</p>
+    </div>
+
+    <div class="mini-quiz-grid">
+        <div class="mini-quiz-card" data-quiz="whats-your-why">
+            <div class="quiz-selection-checkbox"></div>
+            <div class="quiz-card-header">
+                <span class="quiz-card-icon">🔹</span>
+                <span class="quiz-card-title">What's Your Why?</span>
+            </div>
+            <div class="quiz-card-subtitle">💬 Discover the deeper reason behind how you spend, save, and plan.</div>
+            <div class="quiz-card-description">
+                Your core values and motivations shape every financial decision you make. When we understand what truly drives you, we can create budget categories and financial goals that feel meaningful instead of restrictive.
+            </div>
+            <div class="quiz-card-preview">
+                <div class="preview-question">Sample: "What drives your financial choices more than anything?"</div>
+                <div class="preview-options">
+                    • Creating peace of mind and stability<br>
+                    • Having the freedom to make life decisions<br>
+                    • Supporting people and causes you care about<br>
+                    • Achieving goals and building something meaningful
+                </div>
+            </div>
+            <span class="question-count-badge">5 Questions → Personalized Budget Priorities</span>
+        </div>
+
+        <div class="mini-quiz-card" data-quiz="how-you-handle-life">
+            <div class="quiz-selection-checkbox"></div>
+            <div class="quiz-card-header">
+                <span class="quiz-card-icon">🔹</span>
+                <span class="quiz-card-title">Your Stress & Decision Style</span>
+            </div>
+            <div class="quiz-card-subtitle">💬 Understand how you respond to change, decisions, and emotional stress.</div>
+            <div class="quiz-card-description">
+                Your natural patterns for handling stress and making decisions directly impact your money habits. We'll design budgeting tools and alerts that work with your personality, not against it.
+            </div>
+            <div class="quiz-card-preview">
+                <div class="preview-question">Sample: "How do you usually approach big life changes?"</div>
+                <div class="preview-options">
+                    • I plan ahead and stay steady<br>
+                    • I trust my gut and adapt as I go<br>
+                    • I reach out to my people and talk it through<br>
+                    • I reflect, regroup, and figure it out over time
+                </div>
+            </div>
+            <span class="question-count-badge">5 Questions → Custom Budgeting Approach</span>
+        </div>
+
+        <div class="mini-quiz-card" data-quiz="how-you-live">
+            <div class="quiz-selection-checkbox"></div>
+            <div class="quiz-card-header">
+                <span class="quiz-card-icon">🔹</span>
+                <span class="quiz-card-title">Your Daily Rhythm</span>
+            </div>
+            <div class="quiz-card-subtitle">💬 Explore the energy, relationships, and values that shape your daily life.</div>
+            <div class="quiz-card-description">
+                Your lifestyle, relationships, and daily routines all influence where your money goes. Understanding these patterns helps us create spending categories that reflect your real life, not an idealized version.
+            </div>
+            <div class="quiz-card-preview">
+                <div class="preview-question">Sample: "How do you prefer to recharge or unwind?"</div>
+                <div class="preview-options">
+                    • Quiet time with a plan or book<br>
+                    • Doing something spontaneous or creative<br>
+                    • Spending time with people I love<br>
+                    • Moving my body or doing something active
+                </div>
+            </div>
+            <span class="question-count-badge">5 Questions → Realistic Spending Categories</span>
+        </div>
+    </div>
+
+    <div class="selection-controls">
+        <button class="control-btn" id="selectAllQuizzes">Select All Quizzes</button>
+        <button class="control-btn" id="clearAllQuizzes">Clear Selection</button>
+    </div>
+
+    <div class="personalization-actions">
+        <div class="selection-summary">
+            You've selected <span class="selected-count" id="selectedQuizCount">0</span> mini quiz(es)
+        </div>
+        
+        <div class="personalization-buttons">
+            <button class="btn-personalization btn-personalization-primary" id="startMiniQuizzes" disabled>
+                🚀 Start My Mini Quizzes
+            </button>
+            <button class="btn-personalization btn-personalization-secondary" id="skipPersonalization">
+                Maybe Later
+            </button>
+        </div>
+    </div>
+</div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextSection()">Next</button>
+                <button class="btn btn-primary" id="submitBtn" onclick="calculateResults()" style="display: none;">Get My Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
