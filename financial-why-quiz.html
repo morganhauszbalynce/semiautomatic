@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Financial Why - Balynce Mini Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hidden form for Netlify -->
+    <form name="financial-why-responses" netlify hidden>
+        <input type="text" name="q1_drives_choices" />
+        <input type="text" name="q2_fulfillment" />
+        <input type="text" name="q3_motivation" />
+        <input type="text" name="q4_success" />
+        <input type="text" name="q5_legacy" />
+        <input type="text" name="timestamp" />
+    </form>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>🔹 Your Financial Why</h1>
+            <p>Discover the deeper reason behind how you spend, save, and plan</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Question 1 -->
+            <div class="question-section active" id="section1">
+                <div class="question">
+                    <h3>1. What drives your financial choices more than anything?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q1a" name="q1" value="peace_stability">
+                            <label for="q1a">Creating peace of mind and stability</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1b" name="q1" value="freedom_decisions">
+                            <label for="q1b">Having the freedom to make life decisions</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1c" name="q1" value="support_others">
+                            <label for="q1c">Supporting people and causes you care about</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1d" name="q1" value="achieve_goals">
+                            <label for="q1d">Achieving goals and building something meaningful</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-section" id="section2">
+                <div class="question">
+                    <h3>2. When do you feel most fulfilled?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q2a" name="q2" value="calm_control">
+                            <label for="q2a">When everything is calm and under control</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2b" name="q2" value="chasing_dreams">
+                            <label for="q2b">When you're chasing a dream or passion</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2c" name="q2" value="helping_others">
+                            <label for="q2c">When you're making a difference for others</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2d" name="q2" value="accomplishing_goals">
+                            <label for="q2d">When you accomplish something you set your mind to</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-section" id="section3">
+                <div class="question">
+                    <h3>3. What motivates you to get up and keep going on hard days?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q3a" name="q3" value="life_building">
+                            <label for="q3a">The life I want to build for myself</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3b" name="q3" value="people_counting">
+                            <label for="q3b">The people counting on me</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3c" name="q3" value="future_working">
+                            <label for="q3c">The future I'm working toward</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3d" name="q3" value="better_today">
+                            <label for="q3d">The chance to make today better than yesterday</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-section" id="section4">
+                <div class="question">
+                    <h3>4. Which kind of success feels most real to you?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q4a" name="q4" value="financial_security">
+                            <label for="q4a">Feeling financially secure and prepared</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4b" name="q4" value="living_freely">
+                            <label for="q4b">Living freely and doing what I love</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4c" name="q4" value="strong_relationships">
+                            <label for="q4c">Having strong relationships and giving back</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4d" name="q4" value="major_milestones">
+                            <label for="q4d">Hitting major personal or professional milestones</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-section" id="section5">
+                <div class="question">
+                    <h3>5. What legacy or impact matters most to you?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q5a" name="q5" value="financial_stability">
+                            <label for="q5a">Leaving behind financial stability</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5b" name="q5" value="inspiring_others">
+                            <label for="q5b">Living true to myself and inspiring others</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5c" name="q5" value="uplifting_communities">
+                            <label for="q5c">Uplifting people and communities</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5d" name="q5" value="building_proud">
+                            <label for="q5d">Building something I'm proud of</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <div class="personality-type" id="personalityResult">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                <div class="insights" id="insightsResult">
+                    <!-- Insights will be populated by JavaScript -->
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">Back to Main Quiz</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='stress-decision-quiz.html'">Next Mini Quiz</button>
+                </div>
+            </div>
+
+    <script src="js/financial-why-quiz.js"></script>
+</body>
+</html>

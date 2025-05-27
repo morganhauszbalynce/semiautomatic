@@ -439,14 +439,19 @@ function showPersonalization() {
     // Start quizzes button
 document.getElementById('startMiniQuizzes').addEventListener('click', () => {
     if (selectedMiniQuizzes.size > 0) {
-        // For now, just hide the personalization section
-        document.getElementById('personalizationSection').style.display = 'none';
+        // Redirect to the first selected quiz
+        const firstQuiz = Array.from(selectedMiniQuizzes)[0];
         
-        // You could add a message like:
-        // alert('Mini quizzes coming soon! Thanks for your interest.');
+        if (firstQuiz === 'whats-your-why') {
+            window.location.href = 'financial-why-quiz.html';
+        } else if (firstQuiz === 'how-you-handle-life') {
+            window.location.href = 'stress-decision-quiz.html';
+        } else if (firstQuiz === 'how-you-live') {
+            window.location.href = 'daily-rhythm-quiz.html';
+        }
         
-        // Or redirect to a "coming soon" page:
-        // window.location.href = 'https://balynce.com/mini-quizzes-coming-soon';
+        // If multiple quizzes selected, we'll start with the first one
+        // Later you could store the full selection and chain them together
     }
 });
 
