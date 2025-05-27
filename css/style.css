@@ -163,10 +163,15 @@ body {
 
 .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Keep this */
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid #E8FFA9; /* Sprig */
+}
+
+/* Add this new rule to push Next button right when Previous is hidden */
+.navigation #nextBtn {
+    margin-left: auto;
 }
 
 .btn {
