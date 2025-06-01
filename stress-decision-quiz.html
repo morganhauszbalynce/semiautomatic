@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Stress & Decision Style - Balynce Mini Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hidden form for Netlify -->
+    <form name="stress-decision-responses" netlify hidden>
+        <input type="text" name="q1_big_changes" />
+        <input type="text" name="q2_tough_decisions" />
+        <input type="text" name="q3_money_emotions" />
+        <input type="text" name="q4_financial_mindset" />
+        <input type="text" name="q5_background_influence" />
+        <input type="text" name="timestamp" />
+    </form>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>🔹 Your Stress & Decision Style</h1>
+            <p>Understand how you respond to change, decisions, and emotional stress</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Question 1 -->
+            <div class="question-section active" id="section1">
+                <div class="question">
+                    <h3>1. How do you usually approach big life changes?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q1a" name="q1" value="plan_steady">
+                            <label for="q1a">I plan ahead and stay steady</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1b" name="q1" value="gut_adapt">
+                            <label for="q1b">I trust my gut and adapt as I go</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1c" name="q1" value="talk_through">
+                            <label for="q1c">I reach out to my people and talk it through</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1d" name="q1" value="reflect_regroup">
+                            <label for="q1d">I reflect, regroup, and figure it out over time</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-section" id="section2">
+                <div class="question">
+                    <h3>2. When making a tough decision, you tend to:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q2a" name="q2" value="pros_cons">
+                            <label for="q2a">Think through the pros and cons</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2b" name="q2" value="instincts">
+                            <label for="q2b">Go with your instincts</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2c" name="q2" value="ask_advice">
+                            <label for="q2c">Ask for advice from someone you trust</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2d" name="q2" value="compare_past">
+                            <label for="q2d">Compare to what's worked (or not) before</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-section" id="section3">
+                <div class="question">
+                    <h3>3. When money triggers an emotional reaction, you usually:</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q3a" name="q3" value="stick_plan">
+                            <label for="q3a">Step back and stick to the plan</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3b" name="q3" value="fix_feeling">
+                            <label for="q3b">Try to fix the feeling by doing something</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3c" name="q3" value="talk_out">
+                            <label for="q3c">Vent or talk it out</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3d" name="q3" value="avoid_until_ready">
+                            <label for="q3d">Avoid the topic until you're ready to deal</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-section" id="section4">
+                <div class="question">
+                    <h3>4. Which experience shaped your financial mindset the most?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q4a" name="q4" value="manage_alone">
+                            <label for="q4a">Learning how to manage on my own</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4b" name="q4" value="watch_others">
+                            <label for="q4b">Watching others struggle or succeed with money</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4c" name="q4" value="mistake_turning_point">
+                            <label for="q4c">A financial mistake or turning point</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4d" name="q4" value="life_event">
+                            <label for="q4d">A big life event that changed my priorities</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-section" id="section5">
+                <div class="question">
+                    <h3>5. What part of your background still influences your money habits?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q5a" name="q5" value="how_raised">
+                            <label for="q5a">The way I was raised</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5b" name="q5" value="hard_lessons">
+                            <label for="q5b">Lessons I learned the hard way</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5c" name="q5" value="culture_community">
+                            <label for="q5c">The culture or community I'm part of</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5d" name="q5" value="own_path">
+                            <label for="q5d">The freedom I've found carving my own path</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <div class="personality-type" id="personalityResult">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                <div class="insights" id="insightsResult">
+                    <!-- Insights will be populated by JavaScript -->
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">Back to Quiz Menu</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='daily-rhythm-quiz.html'">Next Mini Quiz</button>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextSection()">Next</button>
+                <button class="btn btn-primary" id="submitBtn" onclick="calculateResults()" style="display: none;">Get My Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stress-decision-quiz.js"></script>
+</body>
+</html>

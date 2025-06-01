@@ -494,8 +494,7 @@ function startMainQuiz() {
 }
 
 function startStressQuiz() {
-    // For now, this will just alert - we'll build this quiz later
-    alert('Stress Quiz coming soon! Building this next.');
+    window.location.href = 'stress-decision-quiz.html';
 }
 
 function startRhythmQuiz() {
