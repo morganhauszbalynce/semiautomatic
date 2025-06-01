@@ -510,5 +510,6 @@ document.getElementById('progressBarContainer').style.display = 'none';
 document.querySelector('.navigation').style.display = 'none';
 // Hide all main quiz sections initially
 for (let i = 1; i <= 4; i++) {
+    document.getElementById(`section${i}`).classList.remove('active');
     document.getElementById(`section${i}`).style.display = 'none';
 }
