@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Rhythm - Balynce Mini Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hidden form for Netlify -->
+    <form name="daily-rhythm-responses" netlify hidden>
+        <input type="text" name="q1_recharge" />
+        <input type="text" name="q2_money_relationships" />
+        <input type="text" name="q3_growth" />
+        <input type="text" name="q4_identity" />
+        <input type="text" name="q5_values" />
+        <input type="text" name="timestamp" />
+    </form>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>🔹 Your Daily Rhythm</h1>
+            <p>Explore the energy, relationships, and values that shape your daily life</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Question 1 -->
+            <div class="question-section active" id="section1">
+                <div class="question">
+                    <h3>1. How do you prefer to recharge or unwind?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q1a" name="q1" value="quiet_plan">
+                            <label for="q1a">Quiet time with a plan or book</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1b" name="q1" value="spontaneous_creative">
+                            <label for="q1b">Doing something spontaneous or creative</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1c" name="q1" value="time_with_people">
+                            <label for="q1c">Spending time with people I love</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1d" name="q1" value="moving_active">
+                            <label for="q1d">Moving my body or doing something active</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-section" id="section2">
+                <div class="question">
+                    <h3>2. How does money show up in your closest relationships?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q2a" name="q2" value="plan_share">
+                            <label for="q2a">We plan and share responsibilities</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2b" name="q2" value="give_freely">
+                            <label for="q2b">We give freely and figure it out as we go</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2c" name="q2" value="talk_openly">
+                            <label for="q2c">We talk openly and check in often</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2d" name="q2" value="complicated_boundaries">
+                            <label for="q2d">It's complicated, and I'm working on boundaries</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-section" id="section3">
+                <div class="question">
+                    <h3>3. What kind of growth feels most natural to you?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q3a" name="q3" value="improving_routines">
+                            <label for="q3a">Improving routines and building skills</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3b" name="q3" value="taking_leaps">
+                            <label for="q3b">Taking leaps and learning through action</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3c" name="q3" value="deepening_understanding">
+                            <label for="q3c">Deepening emotional understanding</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3d" name="q3" value="reflecting_evolving">
+                            <label for="q3d">Reflecting and evolving with time</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-section" id="section4">
+                <div class="question">
+                    <h3>4. Which part of your identity influences your lifestyle most?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q4a" name="q4" value="habits_routines">
+                            <label for="q4a">My habits and routines</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4b" name="q4" value="passions_energy">
+                            <label for="q4b">My passions and energy</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4c" name="q4" value="relationships_culture">
+                            <label for="q4c">My relationships and culture</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4d" name="q4" value="values_beliefs">
+                            <label for="q4d">My values and beliefs</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-section" id="section5">
+                <div class="question">
+                    <h3>5. Which values guide your everyday choices the most?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="q5a" name="q5" value="security_responsibility">
+                            <label for="q5a">Security and responsibility</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5b" name="q5" value="freedom_authenticity">
+                            <label for="q5b">Freedom and authenticity</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5c" name="q5" value="generosity_care">
+                            <label for="q5c">Generosity and care</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5d" name="q5" value="ambition_purpose">
+                            <label for="q5d">Ambition and purpose</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <div class="personality-type" id="personalityResult">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                <div class="insights" id="insightsResult">
+                    <!-- Insights will be populated by JavaScript -->
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">Back to Quiz Menu</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='financial-why-quiz.html'">Take Another Quiz</button>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextSection()">Next</button>
+                <button class="btn btn-primary" id="submitBtn" onclick="calculateResults()" style="display: none;">Get My Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/daily-rhythm-quiz.js"></script>
+</body>
+</html>

@@ -498,9 +498,7 @@ function startStressQuiz() {
 }
 
 function startRhythmQuiz() {
-    // For now, just show an alert since the site isn't built yet
-    alert('Daily Rhythm Quiz coming soon! We\'ll build this next.');
-    // Later we'll change this to: window.location.href = 'https://your-actual-rhythm-quiz-url.netlify.app';
+    window.location.href = 'daily-rhythm-quiz.html';
 }
 
 // Initialize quiz - start with selection menu
