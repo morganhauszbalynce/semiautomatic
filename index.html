@@ -36,12 +36,40 @@
 
     <div class="quiz-container">
         <div class="quiz-header">
-            <h1>Financial Personality Quiz</h1>
-            <p>Discover your unique approach to money and finances</p>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressBar"></div>
-            </div>
+    <!-- ADD THIS NAVIGATION AT THE TOP -->
+    <div class="quiz-nav" style="margin-bottom: 20px; text-align: center;">
+        <a href="https://your-stress-quiz-url.netlify.app" class="nav-link" style="margin: 0 15px; color: #001A33; text-decoration: none; font-weight: 600;">Stress Quiz</a>
+        <a href="https://your-rhythm-quiz-url.netlify.app" class="nav-link" style="margin: 0 15px; color: #001A33; text-decoration: none; font-weight: 600;">Daily Rhythm Quiz</a>
+    </div>
+    
+    <!-- YOUR EXISTING CONTENT STAYS THE SAME -->
+    <h1>Balynce Financial Quizzes</h1>
+    <p>Discover your unique approach to money and finances</p>
+    
+    <!-- Quiz Selection Menu (only shown initially) -->
+    <div class="quiz-selection" id="quizSelection">
+        <h3>Choose Your Quiz:</h3>
+        <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="startMainQuiz()">
+                <h4>Complete Financial Personality</h4>
+                <p>12 questions • Get your full 4-letter type (SCJD, PAFE, etc.)</p>
+            </button>
+            <button class="quiz-option-btn" onclick="startStressQuiz()">
+                <h4>Your Stress & Decision Style</h4>
+                <p>5 questions • Custom Budgeting Approach</p>
+            </button>
+            <button class="quiz-option-btn" onclick="startRhythmQuiz()">
+                <h4>Your Daily Rhythm</h4>
+                <p>5 questions • Realistic Spending Categories</p>
+            </button>
         </div>
+    </div>
+    
+    <!-- Progress bar (hidden initially) -->
+    <div class="progress-bar" id="progressBarContainer" style="display: none;">
+        <div class="progress-fill" id="progressBar"></div>
+    </div>
+</div>
 
         <div class="quiz-content">
             <!-- Part 1: Life Context -->

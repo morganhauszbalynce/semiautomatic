@@ -476,3 +476,31 @@ function updatePersonalizationUI() {
 }
 // Initialize quiz
 showSection(1);
+
+// Quiz navigation functions
+function startMainQuiz() {
+    document.getElementById('quizSelection').style.display = 'none';
+    document.getElementById('progressBarContainer').style.display = 'block';
+    document.getElementById('section1').style.display = 'block';
+    document.querySelector('.navigation').style.display = 'flex';
+    showSection(1);
+}
+
+function startStressQuiz() {
+    // For now, this will just alert - we'll build this quiz later
+    alert('Stress Quiz coming soon! Building this next.');
+}
+
+function startRhythmQuiz() {
+    // Redirect to your separate rhythm quiz URL
+    window.location.href = 'https://your-daily-rhythm-quiz-url.netlify.app';
+}
+
+// Initialize quiz - start with selection menu
+document.getElementById('quizSelection').style.display = 'block';
+document.getElementById('progressBarContainer').style.display = 'none';
+document.querySelector('.navigation').style.display = 'none';
+// Hide all main quiz sections initially
+for (let i = 1; i <= 4; i++) {
+    document.getElementById(`section${i}`).style.display = 'none';
+}
