@@ -386,94 +386,12 @@ function submitFeedback(e) {
     .then(() => {
     alert('Thank you for your feedback!');
     document.getElementById('feedbackForm').reset();
-    
-    // Show personalization section after feedback is submitted
-    showPersonalization();
 })
     .catch(() => {
         alert('Thanks! Your feedback was submitted.');
     });
 }
-// Mini Quiz Personalization Functions
-let selectedMiniQuizzes = new Set();
 
-function showPersonalization() {
-    document.getElementById('personalizationSection').classList.add('active');
-    
-    // Add event listeners for mini quiz cards
-    document.querySelectorAll('.mini-quiz-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const quizId = card.dataset.quiz;
-            
-            if (selectedMiniQuizzes.has(quizId)) {
-                selectedMiniQuizzes.delete(quizId);
-                card.classList.remove('selected');
-            } else {
-                selectedMiniQuizzes.add(quizId);
-                card.classList.add('selected');
-            }
-            
-            updatePersonalizationUI();
-        });
-    });
-
-    // Select all button
-    document.getElementById('selectAllQuizzes').addEventListener('click', () => {
-        document.querySelectorAll('.mini-quiz-card').forEach(card => {
-            const quizId = card.dataset.quiz;
-            selectedMiniQuizzes.add(quizId);
-            card.classList.add('selected');
-        });
-        updatePersonalizationUI();
-    });
-
-    // Clear all button
-    document.getElementById('clearAllQuizzes').addEventListener('click', () => {
-        selectedMiniQuizzes.clear();
-        document.querySelectorAll('.mini-quiz-card').forEach(card => {
-            card.classList.remove('selected');
-        });
-        updatePersonalizationUI();
-    });
-
-    // Start quizzes button
-document.getElementById('startMiniQuizzes').addEventListener('click', () => {
-    if (selectedMiniQuizzes.size > 0) {
-        const firstQuiz = Array.from(selectedMiniQuizzes)[0];
-        
-        if (firstQuiz === 'your-financial-why') {
-            window.location.href = 'financial-why-quiz.html';
-        } else if (firstQuiz === 'your-stress-decision-style') {
-            window.location.href = 'stress-decision-quiz.html';
-        } else if (firstQuiz === 'your-daily-rhythm') {
-            window.location.href = 'daily-rhythm-quiz.html';
-        }
-    }
-});
-
-
-    // Skip button
-    document.getElementById('skipPersonalization').addEventListener('click', () => {
-        // Handle skip action - maybe go back to results or main page
-        alert('Skipping personalization - you can always come back for more insights!');
-    });
-}
-
-function updatePersonalizationUI() {
-    const count = selectedMiniQuizzes.size;
-    document.getElementById('selectedQuizCount').textContent = count;
-    
-    const startButton = document.getElementById('startMiniQuizzes');
-    startButton.disabled = count === 0;
-    
-    if (count > 0) {
-        startButton.textContent = count === 1 ? 
-            '🚀 Start My Mini Quiz' : 
-            `🚀 Start My ${count} Mini Quizzes`;
-    } else {
-        startButton.textContent = '🚀 Start My Mini Quizzes';
-    }
-}
 // Initialize quiz
 showSection(1);
 
