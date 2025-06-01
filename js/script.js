@@ -481,8 +481,15 @@ showSection(1);
 function startMainQuiz() {
     document.getElementById('quizSelection').style.display = 'none';
     document.getElementById('progressBarContainer').style.display = 'block';
+    
+    // Show the first section of the main quiz
+    document.getElementById('section1').classList.add('active');
     document.getElementById('section1').style.display = 'block';
+    
     document.querySelector('.navigation').style.display = 'flex';
+    
+    // Make sure we start at section 1
+    currentSection = 1;
     showSection(1);
 }
 
@@ -492,8 +499,9 @@ function startStressQuiz() {
 }
 
 function startRhythmQuiz() {
-    // Redirect to your separate rhythm quiz URL
-    window.location.href = 'https://your-daily-rhythm-quiz-url.netlify.app';
+    // For now, just show an alert since the site isn't built yet
+    alert('Daily Rhythm Quiz coming soon! We\'ll build this next.');
+    // Later we'll change this to: window.location.href = 'https://your-actual-rhythm-quiz-url.netlify.app';
 }
 
 // Initialize quiz - start with selection menu
