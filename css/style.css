@@ -90,10 +90,6 @@ body {
     border-radius: 4px;
 }
 
-.quiz-content {
-    padding: 40px 30px;
-}
-
 .question-section {
     display: none;
     animation: fadeIn 0.5s ease;
