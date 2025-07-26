@@ -273,6 +273,7 @@ body {
     
     .quiz-content {
         padding: 30px 20px;
+        flex: 1; /* ADD THIS LINE */
     }
     
     .btn {
