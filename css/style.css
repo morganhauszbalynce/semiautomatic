@@ -684,3 +684,15 @@ body {
 .quiz-nav a:hover {
     color: #60E4A4 !important;
 }
+/* TEMPORARY DEBUG - REMOVE LATER */
+.quiz-container {
+    border: 3px solid red !important;
+}
+
+.quiz-content {
+    border: 3px solid blue !important;
+}
+
+body {
+    border: 3px solid green !important;
+}
